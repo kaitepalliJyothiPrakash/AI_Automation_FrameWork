@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.jyothi.GenerateFromSwaggerTest" time="70.184" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\my-java-tests\ai-testcase-gen\target\test-classes;C:\my-java-tests\ai-testcase-gen\target\classes;C:\Users\2445084\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\2445084\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\2445084\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\2445084\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\2445084\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\2445084\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\2445084\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\2445084\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\2445084\.m2\repository\io\rest-assured\rest-assured\5.4.0\rest-assured-5.4.0.jar;C:\Users\2445084\.m2\repository\org\apache\groovy\groovy\4.0.16\groovy-4.0.16.jar;C:\Users\2445084\.m2\repository\org\apache\groovy\groovy-xml\4.0.16\groovy-xml-4.0.16.jar;C:\Users\2445084\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\2445084\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\2445084\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\2445084\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\2445084\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\2445084\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\2445084\.m2\repository\io\rest-assured\json-path\5.4.0\json-path-5.4.0.jar;C:\Users\2445084\.m2\repository\org\apache\groovy\groovy-json\4.0.16\groovy-json-4.0.16.jar;C:\Users\2445084\.m2\repository\io\rest-assured\rest-assured-common\5.4.0\rest-assured-common-5.4.0.jar;C:\Users\2445084\.m2\repository\io\rest-assured\xml-path\5.4.0\xml-path-5.4.0.jar;C:\Users\2445084\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\2445084\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
+    <property name="sun.java.command" value="C:\Users\2445084\AppData\Local\Temp\surefire16800125420059417302\surefirebooter-20260520120949144_3.jar C:\Users\2445084\AppData\Local\Temp\surefire16800125420059417302 2026-05-20T12-09-48_918-jvmRun1 surefire-20260520120949144_1tmp surefire_0-20260520120949144_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="GenerateFromSwaggerTest"/>
+    <property name="surefire.test.class.path" value="C:\my-java-tests\ai-testcase-gen\target\test-classes;C:\my-java-tests\ai-testcase-gen\target\classes;C:\Users\2445084\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\2445084\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\2445084\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\2445084\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\2445084\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\2445084\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\2445084\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\2445084\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\2445084\.m2\repository\io\rest-assured\rest-assured\5.4.0\rest-assured-5.4.0.jar;C:\Users\2445084\.m2\repository\org\apache\groovy\groovy\4.0.16\groovy-4.0.16.jar;C:\Users\2445084\.m2\repository\org\apache\groovy\groovy-xml\4.0.16\groovy-xml-4.0.16.jar;C:\Users\2445084\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\2445084\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\2445084\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\2445084\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\2445084\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\2445084\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\2445084\.m2\repository\io\rest-assured\json-path\5.4.0\json-path-5.4.0.jar;C:\Users\2445084\.m2\repository\org\apache\groovy\groovy-json\4.0.16\groovy-json-4.0.16.jar;C:\Users\2445084\.m2\repository\io\rest-assured\rest-assured-common\5.4.0\rest-assured-common-5.4.0.jar;C:\Users\2445084\.m2\repository\io\rest-assured\xml-path\5.4.0\xml-path-5.4.0.jar;C:\Users\2445084\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\2445084\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\2445084"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-09-19"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-21"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\my-java-tests\ai-testcase-gen"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\2445084\AppData\Local\Temp\surefire16800125420059417302\surefirebooter-20260520120949144_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21+35-LTS-2513"/>
+    <property name="user.name" value="2445084"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\2445084\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\2445084\AppData\Local\Temp\"/>
+    <property name="java.version" value="21"/>
+    <property name="user.dir" value="C:\my-java-tests\ai-testcase-gen"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-21\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Python314\Scripts\;C:\Program Files\Python314\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Users\2445084\OneDrive - Cognizant\Desktop\apache-maven-3.9.11\bin;C:\Program Files\Microsoft VS Code\bin;C:\Users\2445084\AppData\Local\Microsoft\WindowsApps;C:\Users\2445084\AppData\Roaming\npm;C:\Users\2445084\Downloads\allure-2.35.1\allure-2.35.1\bin;c:\Users\2445084\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21+35-LTS-2513"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="generateFromSwagger_success" classname="com.jyothi.GenerateFromSwaggerTest" time="69.835">
+    <system-out><![CDATA[
+===== RAW RESPONSE =====
+{
+    "spec_title": "OrangeHRM API",
+    "spec_version": "1.0.0",
+    "page": "OrangeHRM Login",
+    "login_url": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+    "story": "As a logged-in employee, I want to view the OrangeHRM dashboard, so that I can see an overview of HR information and quick access to modules.",
+    "total_scenarios": 3,
+    "total_test_cases": 14,
+    "scenarios": [
+        {
+            "module": "OrangeHRM Login",
+            "scenario_id": "SCN001",
+            "scenario_name": "OrangeHRM Login Functionality - Valid/Invalid Credentials & UI Validation",
+            "scenario_description": "Verify the login functionality with various combinations of valid and invalid credentials, including empty fields, case sensitivity, and associated UI validation messages.",
+            "requirement_id": "REQ001"
+        },
+        {
+            "module": "OrangeHRM Login",
+            "scenario_id": "SCN002",
+            "scenario_name": "OrangeHRM Login Functionality - Security Testing",
+            "scenario_description": "Verify the system's robustness against common security vulnerabilities like SQL injection, XSS/HTML injection, and handling of boundary values for input fields.",
+            "requirement_id": "REQ001"
+        },
+        {
+            "module": "OrangeHRM Login",
+            "scenario_id": "SCN003",
+            "scenario_name": "OrangeHRM Login Functionality - UI/UX Elements",
+            "scenario_description": "Verify the presence and behavior of essential UI/UX elements on the login page, such as the 'Forgot Password' link and password field masking.",
+            "requirement_id": "REQ001"
+        }
+    ],
+    "test_cases": [
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC001",
+            "test_case_description": "Verify successful login with valid username 'Admin' and password 'admin123'.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter 'Admin' in the Username field.",
+                "Enter 'admin123' in the Password field.",
+                "Click the 'Login' button."
+            ],
+            "expected_results": "User is successfully logged in, and a 'Dashboard' heading is visible, indicating access to the main dashboard features.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC002",
+            "test_case_description": "Verify unsuccessful login with an invalid username and valid password.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter 'InvalidUser' in the Username field.",
+                "Enter 'admin123' in the Password field.",
+                "Click the 'Login' button."
+            ],
+            "expected_results": "Login fails. An error message 'Invalid credentials' is displayed below the login form.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC003",
+            "test_case_description": "Verify unsuccessful login with a valid username and invalid password.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter 'Admin' in the Username field.",
+                "Enter 'wrongpass' in the Password field.",
+                "Click the 'Login' button."
+            ],
+            "expected_results": "Login fails. An error message 'Invalid credentials' is displayed below the login form.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC004",
+            "test_case_description": "Verify login fails when both Username and Password fields are left empty, and appropriate validation messages are shown.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Leave Username field empty.",
+                "Leave Password field empty.",
+                "Click the 'Login' button."
+            ],
+            "expected_results": "Login fails. Error message 'Username cannot be empty' is displayed for the username field. Error message 'Password cannot be empty' is displayed for the password field.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC005",
+            "test_case_description": "Verify login fails when Username field is empty and Password field is filled, showing correct validation.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Leave Username field empty.",
+                "Enter 'admin123' in the Password field.",
+                "Click the 'Login' button."
+            ],
+            "expected_results": "Login fails. Error message 'Username cannot be empty' is displayed for the username field.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC006",
+            "test_case_description": "Verify login fails when Username field is filled and Password field is empty, showing correct validation.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter 'Admin' in the Username field.",
+                "Leave Password field empty.",
+                "Click the 'Login' button."
+            ],
+            "expected_results": "Login fails. Error message 'Password cannot be empty' is displayed for the password field.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN002",
+            "test_case_id": "TC007",
+            "test_case_description": "Verify system's resilience against SQL injection attempts in username and password fields.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter 'Admin' or '1=1 --' in the Username field.",
+                "Enter 'admin123' in the Password field.",
+                "Click the 'Login' button.",
+                "Repeat with 'Admin' in username and '' OR '1'='1' --' in password.",
+                "Repeat with 'Admin' or '' OR 1=1; --' in username and 'admin123' in password."
+            ],
+            "expected_results": "Login fails. The system should not allow login and should display an 'Invalid credentials' error or handle the input gracefully without exposing database errors.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN002",
+            "test_case_id": "TC008",
+            "test_case_description": "Verify system's resilience against XSS/HTML injection attempts in username and password fields.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter '<script>alert('XSS')</script>' in the Username field.",
+                "Enter 'admin123' in the Password field.",
+                "Click the 'Login' button.",
+                "Repeat with 'Admin' in username and '<h1>Hello</h1>' in password.",
+                "Observe the browser for any script execution or HTML rendering."
+            ],
+            "expected_results": "Login fails. The input should be sanitized, encoded, or rejected. No alert boxes should appear, and no HTML should be rendered on the page in an unintended way.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC009",
+            "test_case_description": "Verify that username and password fields are case-sensitive.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter 'admin' (lowercase) in the Username field.",
+                "Enter 'admin123' in the Password field.",
+                "Click the 'Login' button.",
+                "Repeat with 'Admin' in username and 'Admin123' (changed case) in password."
+            ],
+            "expected_results": "Login fails for 'admin' username. Login succeeds for 'Admin' username. Login fails for 'Admin123' password. Login succeeds for 'admin123' password. The system confirms case sensitivity for both fields.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN002",
+            "test_case_id": "TC010",
+            "test_case_description": "Verify the system's behavior when very long strings are entered in username and password fields.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Generate a very long string (e.g., 255 characters) for username.",
+                "Enter the long string in the Username field.",
+                "Enter 'admin123' in the Password field.",
+                "Click the 'Login' button.",
+                "Repeat with a very long string for password and 'Admin' for username."
+            ],
+            "expected_results": "The system should handle long inputs gracefully, either truncating, validating, or displaying an appropriate error message without crashing or performance issues. 'Invalid credentials' or 'Maximum length exceeded' error is expected if input exceeds defined limits.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC011",
+            "test_case_description": "Verify that appropriate UI validation messages are consistently displayed for various invalid inputs.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Leave username empty, click Login. Observe message.",
+                "Leave password empty, fill username, click Login. Observe message.",
+                "Fill username/password with invalid credentials, click Login. Observe message."
+            ],
+            "expected_results": "Specific error messages like 'Username cannot be empty', 'Password cannot be empty', and 'Invalid credentials' are displayed correctly, are user-friendly, and appear in expected locations.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN003",
+            "test_case_id": "TC012",
+            "test_case_description": "Verify the presence and visibility of the 'Forgot your password?' link on the login page.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Locate the 'Forgot your password?' link."
+            ],
+            "expected_results": "The 'Forgot your password?' link is visible and clickable on the login page, typically below the login button.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN003",
+            "test_case_id": "TC013",
+            "test_case_description": "Verify that characters entered in the password field are masked (e.g., with asterisks or dots).",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter characters into the Password field."
+            ],
+            "expected_results": "The characters entered in the Password field are masked (e.g., displayed as bullets or asterisks), ensuring privacy and security.",
+            "actual_result": ""
+        },
+        {
+            "test_scenario_id": "SCN001",
+            "test_case_id": "TC014",
+            "test_case_description": "Verify that after a successful login, the user is redirected to the intended dashboard page.",
+            "prerequisites": "OrangeHRM Login page is displayed.",
+            "steps_to_execute": [
+                "Navigate to OrangeHRM login page.",
+                "Enter 'Admin' in the Username field.",
+                "Enter 'admin123' in the Password field.",
+                "Click the 'Login' button."
+            ],
+            "expected_results": "Upon successful login, the user is automatically redirected to the OrangeHRM Dashboard page. The browser's URL should reflect the dashboard endpoint (e.g., '/web/index.php/dashboard/index').",
+            "actual_result": ""
+        }
+    ],
+    "excel_file": "C:\\Users\\2445084\\OneDrive - Cognizant\\Documents\\JavaScript\\swagger\\output\\testcases_1779259259848.xlsx",
+    "excel_url": "http://localhost:3000/output/testcases_1779259259848.xlsx",
+    "playwright_spec_file": "C:\\Users\\2445084\\OneDrive - Cognizant\\Documents\\JavaScript\\swagger\\Automation-test-Cases\\orangehrm_login_1779259259842.spec.js",
+    "playwright_spec_url": "http://localhost:3000/output/orangehrm_login_1779259259842.spec.js"
+}
+]]></system-out>
+  </testcase>
+</testsuite>

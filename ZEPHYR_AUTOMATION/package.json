@@ -1,0 +1,33 @@
+{
+  "name": "testcase-jira",
+  "version": "1.0.0",
+  "description": "AI-powered manual and Playwright test case generator from Jira user stories",
+  "main": "index.js",
+  "scripts": {
+    "generate": "node index.js",
+    "jira:fetch": "node fetch-jira.js",
+    "jira:run": "node fetch-jira.js --run",
+    "jira:generate": "node index.js --jira",
+    "playwright:generate": "node generate-playwright.js",
+    "playwright:test": "npx playwright test",
+    "playwright:test:ui": "npx playwright test --ui",
+    "playwright:report": "npx playwright show-report",
+    "playwright:results": "node update-results.js",
+    "pipeline:init": "node run-pipeline.js --init",
+    "pipeline:run": "node run-pipeline.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.95.2",
+    "dotenv": "^17.4.2",
+    "exceljs": "^4.4.0",
+    "fs": "^0.0.1-security",
+    "playwright": "^1.60.0"
+  },
+  "devDependencies": {
+    "@playwright/mcp": "^0.0.70",
+    "@playwright/test": "^1.59.1",
+    "@types/node": "^22.0.0",
+    "pptxgenjs": "^4.0.1",
+    "typescript": "^5.7.0"
+  }
+}

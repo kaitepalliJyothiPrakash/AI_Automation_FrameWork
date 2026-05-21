@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../../../my-java-tests/ai-testcase-gen"
+		},
+		{
+			"path": "../GithubCopilot"
+		},
+		{
+			"path": "../PlayWrightAutomation"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "GithubCopilot"
+	}
+}

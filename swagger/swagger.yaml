@@ -1,0 +1,333 @@
+openapi: 3.0.3
+info:
+  title: OrangeHRM API
+  version: 1.0.0
+  description: |
+    As a logged-in employee, I want to view the OrangeHRM dashboard, so that I can see an overview of HR information and quick access to modules.
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+
+  /accounts:
+    # GET - Retrieve all users
+    get:
+      summary: Get all users
+      description: Retrieve a list of all registered users in OrangeHRM.
+      operationId: getAllUsers
+      responses:
+        '200':
+          description: List of users retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+              examples:
+                success:
+                  value:
+                    - id: "usr_9f2a7b1c"
+                      username: "Admin"
+                    - id: "usr_8e1b6a2d"
+                      username: "Employee1"
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    # POST - Login
+    post:
+      summary: Login to OrangeHRM
+      description: Login with username and password.
+      operationId: loginUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            examples:
+              valid:
+                summary: Valid login
+                value:
+                  username: "Admin"
+                  password: "admin123"
+              invalid_username:
+                summary: Invalid username
+                value:
+                  username: "wronguser"
+                  password: "admin123"
+              invalid_password:
+                summary: Invalid password
+                value:
+                  username: "Admin"
+                  password: "wrongpass"
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              examples:
+                success:
+                  value:
+                    id: "usr_9f2a7b1c"
+                    username: "Admin"
+        '400':
+          description: Invalid input (validation errors)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                bad_request:
+                  value:
+                    code: "VALIDATION_ERROR"
+                    message: "Invalid request body"
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                unauthorized:
+                  value:
+                    code: "INVALID_CREDENTIALS"
+                    message: "Invalid username or password"
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /accounts/{id}:
+    # GET - Retrieve single user by ID
+    get:
+      summary: Get user by ID
+      description: Retrieve a specific user's details by their ID.
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "usr_9f2a7b1c"
+      responses:
+        '200':
+          description: User retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              examples:
+                success:
+                  value:
+                    id: "usr_9f2a7b1c"
+                    username: "Admin"
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                not_found:
+                  value:
+                    code: "USER_NOT_FOUND"
+                    message: "User with given ID does not exist"
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    # PUT - Replace full user details
+    put:
+      summary: Update full user details
+      description: Replace all user details (username and password) for a given user ID.
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "usr_9f2a7b1c"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            examples:
+              valid:
+                summary: Valid update
+                value:
+                  username: "Admin"
+                  password: "NewPass123"
+              missing_password:
+                summary: Missing password
+                value:
+                  username: "Admin"
+                  password: ""
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              examples:
+                updated:
+                  value:
+                    id: "usr_9f2a7b1c"
+                    username: "Admin"
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    # PATCH - Partially update user (e.g. password only)
+    patch:
+      summary: Partially update user details
+      description: Update only specific fields like password for a given user ID.
+      operationId: patchUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: "usr_9f2a7b1c"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+            examples:
+              change_password:
+                summary: Change password only
+                value:
+                  password: "UpdatedPass123"
+              change_username:
+                summary: Change username only
+                value:
+                  username: "NewAdmin"
+      responses:
+        '200':
+          description: User partially updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              examples:
+                patched:
+                  value:
+                    id: "usr_9f2a7b1c"
+                    username: "NewAdmin"
+        '400':
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  schemas:
+    LoginRequest:
+      type: object
+      required: [username, password]
+      properties:
+        username:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: "Admin"
+        password:
+          type: string
+          description: Must be at least 8 characters, contain a letter and a number.
+          minLength: 8
+          example: "admin123"
+
+    PatchRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          minLength: 2
+          maxLength: 100
+          example: "NewAdmin"
+        password:
+          type: string
+          minLength: 8
+          example: "UpdatedPass123"
+
+    Account:
+      type: object
+      description: Returned user representation (no password).
+      required: [id, username]
+      properties:
+        id:
+          type: string
+          example: "usr_9f2a7b1c"
+        username:
+          type: string
+          example: "Admin"
+
+    ErrorResponse:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+          example: "VALIDATION_ERROR"
+        message:
+          type: string
+          example: "Invalid request body"
+        details:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+                example: "username"
+              issue:
+                type: string
+                example: "Username is required"

@@ -1,0 +1,204 @@
+==========================================
+   OrangeHRM Test Automation - Commands Explanation
+==========================================
+
+PROJECT OVERVIEW:
+-----------------
+This project automatically generates manual test cases and automation test cases
+for the OrangeHRM login page using AI (Google Gemini), runs them using Playwright,
+and updates the Excel report with the test results — all in 1 click using run-tests.bat
+
+
+==========================================
+STEP 1: Start Node Server
+==========================================
+
+Command:
+   node server.js
+
+What it does:
+   - Starts the backend Node.js server on http://localhost:3000
+   - This server is the brain of the project
+   - It connects to Google Gemini AI to generate test cases
+   - It creates the Excel file with 4 sheets
+   - It generates the Playwright automation spec file
+   - It updates the Excel file with automation test results
+
+Why it is needed:
+   - Without this server, nothing works
+   - All other steps depend on this server
+
+
+==========================================
+STEP 2: Start Swagger YAML Server
+==========================================
+
+Command:
+   npx serve -p 5050
+
+What it does:
+   - Serves the swagger.yaml file on http://localhost:5050/swagger.yaml
+   - swagger.yaml contains the API definition and user story for OrangeHRM login
+   - The user story from swagger.yaml is used by Gemini AI to generate test cases
+
+Why it is needed:
+   - The Node server fetches swagger.yaml from this URL
+   - Without this, the Node server cannot read the user story
+
+
+==========================================
+STEP 3: Generate Test Cases
+==========================================
+
+Command:
+   mvn -q test -Dtest=GenerateFromSwaggerTest
+
+What it does:
+   - Runs the Java test using Maven
+   - The Java test calls the Node server API:
+     POST http://localhost:3000/generate-testcases-from-swagger
+   - The Node server then:
+     1. Reads the user story from swagger.yaml
+     2. Scrapes the OrangeHRM login page fields
+     3. Sends the story + page fields to Google Gemini AI
+     4. Gemini generates Test Scenarios and Test Cases
+     5. Saves them to an Excel file with 4 sheets:
+        - Sheet 1: Test Scenario  (Module, Scenario ID, Scenario Name, Scenario Description, Requirement ID)
+        - Sheet 2: Test Cases     (Test Scenario ID, Test Case ID, Description, Prerequisites, Steps, Expected Results, Actual Result, Pass/Fail, Defect ID, Remarks)
+        - Sheet 3: Defect Report  (Serial No, Defect ID, Description, Reproducible, Steps to Reproduce, Severity, Priority, Reported By, Reported Date, Status, Remarks)
+        - Sheet 4: RTM            (Serial No, Requirement ID, Requirement Description, Test Scenario ID, Test Case ID, Defect ID)
+     6. Also generates a Playwright automation spec file (.spec.js)
+        saved in Automation-test-Cases folder
+
+Output files generated:
+   - Excel file  : output\testcases_TIMESTAMP.xlsx
+   - Spec file   : Automation-test-Cases\orangehrm_login_TIMESTAMP.spec.js
+
+Why it is needed:
+   - This step generates all the test cases and automation code using AI
+   - Without this step, there are no test cases to run
+
+
+==========================================
+STEP 4: Run Playwright Automation Tests
+==========================================
+
+Command:
+   npx playwright test --headed
+
+What it does:
+   - Reads the generated spec file from Automation-test-Cases folder
+   - Opens a real browser (headed mode) and runs each test case automatically
+   - Tests covered:
+     1.  Valid login with correct credentials
+     2.  Invalid username
+     3.  Invalid password
+     4.  Both fields empty
+     5.  Username empty, password filled
+     6.  Username filled, password empty
+     7.  SQL injection in username field
+     8.  SQL injection in password field
+     9.  XSS/HTML injection in username field
+     10. XSS/HTML injection in password field
+     11. Case sensitivity for username
+     12. Case sensitivity for password
+     13. Very long username (boundary test)
+     14. Very long password (boundary test)
+     15. Forgot password link presence
+     16. Password field masking
+   - After each test, result is saved to output\test_results.json
+   - After ALL tests finish, global-teardown.js runs automatically and:
+     1. Reads test_results.json
+     2. Calls POST http://localhost:3000/update-excel-results
+     3. Updates the Excel file:
+        - Sheet 2: Fills Actual Result, Pass/Fail, Defect ID, Remarks
+        - Sheet 3: Adds rows for failed tests in Defect Report
+        - Sheet 4: Fills Defect ID in RTM for failed tests
+
+Output:
+   - Updated Excel file in output folder
+   - Pass/Fail results visible in Sheet 2
+   - Defects automatically logged in Sheet 3
+   - RTM updated with defect links in Sheet 4
+
+Why it is needed:
+   - This step actually runs the tests on the OrangeHRM website
+   - It validates whether the login page works correctly
+   - It automatically updates the Excel report with results
+
+
+==========================================
+FOLDER STRUCTURE
+==========================================
+
+swagger\
+   |-- Automation-test-Cases\     <- Generated Playwright spec files saved here
+   |-- output\                    <- Generated Excel files and test_results.json saved here
+   |-- .env                       <- Contains GEMINI_API_KEY (secret - do not share)
+   |-- server.js                  <- Main Node.js backend server
+   |-- swagger.yaml               <- API definition + user story for OrangeHRM login
+   |-- playwright.config.js       <- Playwright configuration (testDir, headless, timeout)
+   |-- global-teardown.js         <- Runs after all tests - updates Excel automatically
+   |-- run-tests.bat              <- 1 click runner - runs all steps automatically
+   |-- package.json               <- Node.js dependencies
+
+ai-testcase-gen\
+   |-- src\test\java\com\jyothi\
+   |       GenerateFromSwaggerTest.java  <- Java test that calls the Node server API
+   |-- pom.xml                          <- Maven dependencies (JUnit, RestAssured)
+
+
+==========================================
+TECHNOLOGIES USED
+==========================================
+
+   - Node.js + Express    : Backend server
+   - Google Gemini AI     : Generates test cases and automation code
+   - Playwright           : Runs automation tests on browser
+   - ExcelJS              : Creates and updates Excel reports
+   - Java + Maven         : Triggers the test case generation API
+   - RestAssured          : Java HTTP client to call the Node server
+   - Cheerio              : Scrapes OrangeHRM login page HTML fields
+   - swagger.yaml         : Provides user story for AI test generation
+
+
+==========================================
+HOW TO RUN (1 CLICK)
+==========================================
+
+   Just double click:
+   run-tests.bat
+
+   That's it! Everything runs automatically.
+
+
+==========================================
+EXCEL OUTPUT EXPLANATION
+==========================================
+
+Sheet 1 - Test Scenario:
+   Contains high level test scenarios grouped by module
+   Columns: Module | Scenario ID | Scenario Name | Scenario Description | Requirement ID
+
+Sheet 2 - Test Cases:
+   Contains detailed test cases with steps and results
+   Columns: Test Scenario ID | Test Case ID | Test Case Description | Prerequisites |
+            Steps To Execute | Expected Results | Actual Result | Pass/Fail | Defect ID | Remarks
+   NOTE: Actual Result, Pass/Fail, Defect ID, Remarks are filled automatically after automation run
+
+Sheet 3 - Defect Report:
+   Contains defects raised for failed test cases
+   Columns: Serial No | Defect ID | Description | Reproducible | Steps To Reproduce |
+            Severity | Priority | Reported By | Reported Date | Status | Remarks
+   NOTE: Filled automatically after automation run - only for failed tests
+
+Sheet 4 - RTM (Requirements Traceability Matrix):
+   Links requirements to test scenarios, test cases and defects
+   Columns: Serial No | Requirement ID | Requirement Description |
+            Test Scenario ID | Test Case ID | Defect ID
+   NOTE: Defect ID filled automatically after automation run
+
+
+==========================================
+END OF DOCUMENT
+==========================================

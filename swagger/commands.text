@@ -1,0 +1,14 @@
+Terminal 1 (in this same folder)
+node server.js
+
+Terminal 2 (in the same folder — where swagger.yaml is)
+npx http-server . -p 5050
+
+Verify in browser: http://127.0.0.1:5050/swagger.yaml
+
+
+Terminal 3 (inside ai-testcase-gen):
+mvn -q test -Dtest=GenerateFromSwaggerTest
+
+Terminal 4 PS C:\Users\2445084\OneDrive - Cognizant\Documents\JavaScript\swagger>
+ npx playwright test orangehrm_login_1776817487468.spec.js --headed

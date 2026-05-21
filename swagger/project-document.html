@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OrangeHRM Test Automation - Project Document</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Calibri', Arial, sans-serif;
+      font-size: 13px;
+      color: #222;
+      background: #f4f6f9;
+      padding: 40px;
+    }
+    .page {
+      background: white;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 4px;
+    }
+
+    /* Cover Page */
+    .cover {
+      text-align: center;
+      padding: 80px 0;
+      border-bottom: 3px solid #1a73e8;
+      margin-bottom: 50px;
+    }
+    .cover h1 {
+      font-size: 32px;
+      color: #1a73e8;
+      margin-bottom: 10px;
+    }
+    .cover h2 {
+      font-size: 18px;
+      color: #555;
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+    .cover .badge {
+      display: inline-block;
+      background: #1a73e8;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin: 5px;
+    }
+    .cover .meta {
+      margin-top: 40px;
+      color: #777;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    /* Section */
+    .section {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a73e8;
+      border-bottom: 2px solid #1a73e8;
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+    .sub-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+      margin: 16px 0 8px 0;
+    }
+    p {
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 12px;
+    }
+    th {
+      background: #1a73e8;
+      color: white;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    td {
+      padding: 9px 12px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #f8f9ff; }
+
+    /* Code block */
+    .code {
+      background: #f1f3f4;
+      border-left: 4px solid #1a73e8;
+      padding: 12px 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      margin: 10px 0;
+      border-radius: 0 4px 4px 0;
+      color: #333;
+    }
+
+    /* Flow diagram */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin: 16px 0;
+    }
+    .flow-box {
+      background: #e8f0fe;
+      border: 1px solid #1a73e8;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: #1a73e8;
+      font-weight: bold;
+      text-align: center;
+    }
+    .flow-arrow {
+      font-size: 18px;
+      color: #1a73e8;
+    }
+
+    /* Step boxes */
+    .step-box {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0;
+      border-left: 5px solid #1a73e8;
+    }
+    .step-box h4 {
+      color: #1a73e8;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    /* Sheet boxes */
+    .sheet-box {
+      background: #f8f9ff;
+      border: 1px solid #c5d0f5;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 10px 0;
+    }
+    .sheet-box h4 {
+      color: #1a73e8;
+      margin-bottom: 6px;
+    }
+
+    /* Tech pills */
+    .tech-pill {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #1a73e8;
+      border: 1px solid #1a73e8;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      margin: 4px;
+    }
+
+    /* Folder tree */
+    .folder-tree {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      background: #f1f3f4;
+      padding: 16px;
+      border-radius: 6px;
+      line-height: 2;
+      color: #333;
+    }
+
+    /* Print */
+    @media print {
+      body { background: white; padding: 0; }
+      .page { box-shadow: none; padding: 40px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Cover -->
+  <div class="cover">
+    <h1>OrangeHRM Test Automation</h1>
+    <h2>AI-Powered Test Case Generation & Automation Framework</h2>
+    <div>
+      <span class="badge">Node.js</span>
+      <span class="badge">Google Gemini AI</span>
+      <span class="badge">Playwright</span>
+      <span class="badge">Java + Maven</span>
+      <span class="badge">ExcelJS</span>
+    </div>
+    <div class="meta">
+      <strong>Project:</strong> OrangeHRM Login Page Test Automation<br/>
+      <strong>Target URL:</strong> https://opensource-demo.orangehrmlive.com/web/index.php/auth/login<br/>
+      <strong>Prepared by:</strong> K Jyothi Prakash<br/>
+      <strong>Date:</strong> 2025
+    </div>
+  </div>
+
+  <!-- 1. Project Overview -->
+  <div class="section">
+    <div class="section-title">1. Project Overview</div>
+    <p>
+      This project is an <strong>AI-powered end-to-end test automation framework</strong> built for the
+      OrangeHRM login page. It automatically generates manual test cases, creates Playwright automation
+      scripts, executes them on a real browser, and updates an Excel report with the results — all with
+      a single click using a batch file.
+    </p>
+    <p>
+      The system uses <strong>Google Gemini AI</strong> to intelligently generate test scenarios and test
+      cases based on a user story defined in a Swagger YAML file. The generated test cases cover positive,
+      negative, security, boundary, and UI validation scenarios.
+    </p>
+  </div>
+
+  <!-- 2. Architecture Flow -->
+  <div class="section">
+    <div class="section-title">2. Architecture &amp; Flow</div>
+    <div class="flow">
+      <div class="flow-box">swagger.yaml<br/>(User Story)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Node.js Server<br/>(server.js)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Google Gemini AI<br/>(Test Generation)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Excel Report<br/>(4 Sheets)</div>
+    </div>
+    <div class="flow">
+      <div class="flow-box">Playwright<br/>Spec File (.spec.js)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Playwright Test<br/>Runner</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">test_results.json<br/>(Auto saved)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Excel Updated<br/>Automatically ✅</div>
+    </div>
+  </div>
+
+  <!-- 3. How to Run -->
+  <div class="section">
+    <div class="section-title">3. How to Run (1 Click)</div>
+    <p>The entire project can be executed with a single double-click on the batch file:</p>
+    <div class="code">run-tests.bat</div>
+    <p>This batch file automatically opens 4 terminals and executes all steps in sequence.</p>
+  </div>
+
+  <!-- 4. Step by Step Explanation -->
+  <div class="section">
+    <div class="section-title">4. Step-by-Step Execution</div>
+
+    <div class="step-box">
+      <h4>Step 1 — Start Node.js Server</h4>
+      <div class="code">node server.js</div>
+      <p>Starts the backend server on <strong>http://localhost:3000</strong>. This is the core of the project — it connects to Google Gemini AI, generates test cases, creates Excel reports, and updates results after automation runs.</p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 2 — Serve swagger.yaml</h4>
+      <div class="code">npx serve -p 5050</div>
+      <p>Serves the <strong>swagger.yaml</strong> file on <strong>http://localhost:5050</strong>. The swagger file contains the user story for the OrangeHRM login page which is used by Gemini AI to generate relevant test cases.</p>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 3 — Generate Test Cases</h4>
+      <div class="code">mvn -q test -Dtest=GenerateFromSwaggerTest</div>
+      <p>Runs the Java test using Maven which calls the Node server API. The server then:</p>
+      <ul style="margin-left:20px; line-height:2;">
+        <li>Reads the user story from swagger.yaml</li>
+        <li>Scrapes OrangeHRM login page fields using Cheerio</li>
+        <li>Sends story + page fields to Google Gemini AI</li>
+        <li>Gemini generates Test Scenarios and Test Cases</li>
+        <li>Saves them to an Excel file with 4 sheets</li>
+        <li>Generates a Playwright automation spec file</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <h4>Step 4 — Run Playwright Automation Tests</h4>
+      <div class="code">npx playwright test --headed</div>
+      <p>Opens a real browser and runs all generated test cases automatically. After all tests finish, <strong>global-teardown.js</strong> runs automatically and updates the Excel file with results.</p>
+    </div>
+  </div>
+
+  <!-- 5. Test Cases Covered -->
+  <div class="section">
+    <div class="section-title">5. Test Cases Covered</div>
+    <table>
+      <tr>
+        <th>#</th>
+        <th>Test Case</th>
+        <th>Type</th>
+      </tr>
+      <tr><td>1</td><td>Valid login with correct credentials</td><td>Positive</td></tr>
+      <tr><td>2</td><td>Invalid username</td><td>Negative</td></tr>
+      <tr><td>3</td><td>Invalid password</td><td>Negative</td></tr>
+      <tr><td>4</td><td>Both fields empty</td><td>Negative</td></tr>
+      <tr><td>5</td><td>Username empty, password filled</td><td>Negative</td></tr>
+      <tr><td>6</td><td>Username filled, password empty</td><td>Negative</td></tr>
+      <tr><td>7</td><td>SQL injection in username</td><td>Security</td></tr>
+      <tr><td>8</td><td>SQL injection in password</td><td>Security</td></tr>
+      <tr><td>9</td><td>XSS/HTML injection in username</td><td>Security</td></tr>
+      <tr><td>10</td><td>XSS/HTML injection in password</td><td>Security</td></tr>
+      <tr><td>11</td><td>Case sensitivity for username</td><td>Boundary</td></tr>
+      <tr><td>12</td><td>Case sensitivity for password</td><td>Boundary</td></tr>
+      <tr><td>13</td><td>Very long username (256 chars)</td><td>Boundary</td></tr>
+      <tr><td>14</td><td>Very long password (256 chars)</td><td>Boundary</td></tr>
+      <tr><td>15</td><td>Forgot password link presence</td><td>UI Validation</td></tr>
+      <tr><td>16</td><td>Password field masking</td><td>UI Validation</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Excel Report Structure -->
+  <div class="section">
+    <div class="section-title">6. Excel Report Structure</div>
+
+    <div class="sheet-box">
+      <h4>Sheet 1 — Test Scenario</h4>
+      <p>Contains high-level test scenarios grouped by module.</p>
+      <table>
+        <tr><th>Module</th><th>Scenario ID</th><th>Scenario Name</th><th>Scenario Description</th><th>Requirement ID</th></tr>
+        <tr><td>OrangeHRM Login</td><td>SCN001</td><td>Valid Login</td><td>Verify login with valid credentials</td><td>REQ001</td></tr>
+      </table>
+    </div>
+
+    <div class="sheet-box">
+      <h4>Sheet 2 — Test Cases</h4>
+      <p>Contains detailed test cases. <strong>Actual Result, Pass/Fail, Defect ID, Remarks</strong> are filled automatically after automation run.</p>
+      <table>
+        <tr><th>Test Scenario ID</th><th>Test Case ID</th><th>Description</th><th>Prerequisites</th><th>Steps</th><th>Expected Results</th><th>Actual Result</th><th>Pass/Fail</th><th>Defect ID</th><th>Remarks</th></tr>
+        <tr><td>SCN001</td><td>TC001</td><td>Valid login</td><td>Browser open</td><td>1. Enter Admin...</td><td>Dashboard shown</td><td>✅ Auto filled</td><td>✅ Auto filled</td><td>✅ Auto filled</td><td>✅ Auto filled</td></tr>
+      </table>
+    </div>
+
+    <div class="sheet-box">
+      <h4>Sheet 3 — Defect Report</h4>
+      <p>Automatically populated with defects for <strong>failed test cases only</strong> after automation run.</p>
+      <table>
+        <tr><th>Serial No.</th><th>Defect ID</th><th>Description</th><th>Reproducible</th><th>Steps to Reproduce</th><th>Severity</th><th>Priority</th><th>Reported By</th><th>Reported Date</th><th>Status</th><th>Remarks</th></tr>
+        <tr><td>1</td><td>DEF001</td><td>✅ Auto filled</td><td>Yes</td><td>Manual</td><td>Medium</td><td>Medium</td><td>Manual</td><td>✅ Auto filled</td><td>Open</td><td>Manual</td></tr>
+      </table>
+    </div>
+
+    <div class="sheet-box">
+      <h4>Sheet 4 — RTM (Requirements Traceability Matrix)</h4>
+      <p>Links requirements to test scenarios, test cases and defects. <strong>Defect ID</strong> is filled automatically.</p>
+      <table>
+        <tr><th>Serial No.</th><th>Requirement ID</th><th>Requirement Description</th><th>Test Scenario ID</th><th>Test Case ID</th><th>Defect ID</th></tr>
+        <tr><td>1</td><td>REQ001</td><td>Login functionality</td><td>SCN001</td><td>TC001</td><td>✅ Auto filled</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 7. Folder Structure -->
+  <div class="section">
+    <div class="section-title">7. Folder Structure</div>
+    <div class="folder-tree">
+swagger\<br/>
+&nbsp;&nbsp;|-- Automation-test-Cases\&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- Generated Playwright spec files<br/>
+&nbsp;&nbsp;|-- output\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- Generated Excel files &amp; test_results.json<br/>
+&nbsp;&nbsp;|-- .env&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- GEMINI_API_KEY (secret)<br/>
+&nbsp;&nbsp;|-- server.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- Main Node.js backend server<br/>
+&nbsp;&nbsp;|-- swagger.yaml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- API definition + user story<br/>
+&nbsp;&nbsp;|-- playwright.config.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- Playwright configuration<br/>
+&nbsp;&nbsp;|-- global-teardown.js&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- Auto updates Excel after tests<br/>
+&nbsp;&nbsp;|-- run-tests.bat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- 1 click runner<br/>
+&nbsp;&nbsp;|-- package.json&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- Node.js dependencies<br/>
+<br/>
+ai-testcase-gen\<br/>
+&nbsp;&nbsp;|-- src\test\java\com\jyothi\<br/>
+&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;GenerateFromSwaggerTest.java&nbsp;&nbsp;&lt;-- Java test that calls Node server API<br/>
+&nbsp;&nbsp;|-- pom.xml&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;-- Maven dependencies
+    </div>
+  </div>
+
+  <!-- 8. Technologies Used -->
+  <div class="section">
+    <div class="section-title">8. Technologies Used</div>
+    <table>
+      <tr><th>Technology</th><th>Purpose</th></tr>
+      <tr><td>Node.js + Express</td><td>Backend server — handles API requests and orchestrates the flow</td></tr>
+      <tr><td>Google Gemini AI</td><td>Generates test scenarios, test cases and Playwright automation code</td></tr>
+      <tr><td>Playwright</td><td>Runs automation tests on real browser</td></tr>
+      <tr><td>ExcelJS</td><td>Creates and updates Excel reports with 4 sheets</td></tr>
+      <tr><td>Java + Maven</td><td>Triggers the test case generation API call</td></tr>
+      <tr><td>RestAssured</td><td>Java HTTP client to call the Node.js server</td></tr>
+      <tr><td>Cheerio</td><td>Scrapes OrangeHRM login page HTML to extract form fields</td></tr>
+      <tr><td>swagger.yaml</td><td>Provides API definition and user story for AI test generation</td></tr>
+      <tr><td>dotenv</td><td>Manages secret API keys securely via .env file</td></tr>
+    </table>
+    <br/>
+    <div>
+      <span class="tech-pill">Node.js</span>
+      <span class="tech-pill">Express</span>
+      <span class="tech-pill">Google Gemini AI</span>
+      <span class="tech-pill">Playwright</span>
+      <span class="tech-pill">ExcelJS</span>
+      <span class="tech-pill">Java</span>
+      <span class="tech-pill">Maven</span>
+      <span class="tech-pill">RestAssured</span>
+      <span class="tech-pill">Cheerio</span>
+      <span class="tech-pill">YAML</span>
+      <span class="tech-pill">JavaScript (ESM)</span>
+    </div>
+  </div>
+
+  <!-- 9. API Endpoints -->
+  <div class="section">
+    <div class="section-title">9. API Endpoints</div>
+    <table>
+      <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+      <tr><td>POST</td><td>/generate-testcases-from-swagger</td><td>Generates test cases + Excel + Playwright spec file</td></tr>
+      <tr><td>POST</td><td>/update-excel-results</td><td>Updates Excel with Playwright test results</td></tr>
+    </table>
+  </div>
+
+  <!-- Footer -->
+  <div style="text-align:center; margin-top:60px; padding-top:20px; border-top:1px solid #ddd; color:#999; font-size:12px;">
+    OrangeHRM Test Automation Framework &nbsp;|&nbsp; Prepared by K Jyothi Prakash &nbsp;|&nbsp; 2025
+  </div>
+
+</div>
+</body>
+</html>

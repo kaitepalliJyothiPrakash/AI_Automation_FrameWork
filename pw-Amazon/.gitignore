@@ -1,0 +1,5 @@
+.env
+node_modules/
+healing-report/
+test-results/
+playwright-report/

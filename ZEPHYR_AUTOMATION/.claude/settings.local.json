@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:playwright.dev)",
+      "WebFetch(domain:www.npmjs.com)",
+      "PowerShell(claude --version 2>&1)",
+      "mcp__playwright__*",
+      "Write(locators/**)",
+      "Bash(npm uninstall *)",
+      "Bash(npm install *)"
+    ]
+  }
+}
